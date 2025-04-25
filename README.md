@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next Trivia
 
-## Getting Started
+Este es un proyecto desarrollado con [Next.js](https://nextjs.org), diseñado para crear una aplicación de trivia interactiva.
 
-First, run the development server:
+## Requisitos Previos
 
+Asegúrate de tener instalados los siguientes programas:
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
+
+## Instalación
+
+1. Clona este repositorio:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd next-trivia
+   ```
+
+2. Instala las dependencias:
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+
+## Ejecución del Proyecto
+
+Para iniciar el servidor de desarrollo, ejecuta:
 ```bash
 npm run dev
-# or
+# o
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+La estructura principal del proyecto es la siguiente:
 
-## Learn More
+```
+src/
+  app/
+    favicon.ico
+    globals.css
+    layout.tsx
+    page.tsx
+    quiz/
+      layout.tsx
+      page.tsx
+      components/
+        Score.tsx
+        SectionQuestions.tsx
+  components/
+    Button.tsx
+  context/
+    QuizContext.tsx
+  hooks/
+    useQuiz.ts
+  lib/
+    api.ts
+  services/
+    quiz.service.ts
+    quiz.type.ts
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Archivos Clave
+- **`app/page.tsx`**: Página principal de la aplicación.
+- **`context/QuizContext.tsx`**: Contexto global para manejar el estado del quiz.
+- **`services/quiz.service.ts`**: Lógica para interactuar con la API del quiz.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Puntos Clave del Proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Gestión de Estado con Context API**: El proyecto utiliza `QuizContext` para manejar el estado global del quiz, lo que permite compartir datos entre componentes sin necesidad de prop drilling.
+2. **Componentización Modular**: Los componentes como `Button`, `Score`, y `SectionQuestions` están diseñados para ser reutilizables y fáciles de mantener.
+3. **Custom Hooks**: Se utiliza el hook personalizado `useQuiz` para encapsular la lógica del estado del quiz, mejorando la separación de responsabilidades.
+4. **Servicios Centralizados**: La lógica para interactuar con la API del quiz está centralizada en `quiz.service.ts`, lo que facilita el mantenimiento y las pruebas.
+5. **Estructura de Carpetas Escalable**: La estructura del proyecto está organizada en carpetas como `context`, `hooks`, `lib`, y `services`, lo que permite escalar el proyecto de manera ordenada.
+6. **Estilos Globales**: Los estilos globales se manejan en `globals.css`, asegurando consistencia en toda la aplicación.
+7. **Rutas Anidadas**: La funcionalidad del quiz está encapsulada en la ruta `quiz/`, lo que facilita la navegación y el mantenimiento.
+8. **Optimización de Recursos**: Los íconos y recursos SVG están organizados en la carpeta `public/`, lo que permite un acceso eficiente y optimizado.
+9. **Tipado con TypeScript**: Todo el proyecto está desarrollado con TypeScript, lo que garantiza un código más seguro y menos propenso a errores.
+10. **Separación de Lógica y Presentación**: La lógica del quiz está separada de los componentes de presentación, siguiendo buenas prácticas de desarrollo.
